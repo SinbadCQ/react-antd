@@ -1,27 +1,12 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import Home from './pages/index/index'
-import Detail from './pages/detail/index'
+import loadable from './loadable'
 
-const routeList = [
-    {
+const routes = [{
         path: '/',
-        component: Home,
+        component: loadable(() => import('./pages/index/index'))
     },
     {
         path: '/detail',
-        component: Detail
-    },
-];
-
-class routes extends React.Component {
-    render() {
-        return (
-            routeList.map((value, index, arr) => (
-                <Route exact path={value.path} component={value.component} key={value.component} />
-            ))
-        )
-    }
-}
+        component: loadable(() => import('./pages/detail/index'))
+    }];
 
 export default routes

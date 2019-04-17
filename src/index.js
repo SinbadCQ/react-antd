@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 // import * as serviceWorker from './serviceWorker';
-import { HashRouter as Router, Switch} from 'react-router-dom'
-import RouteList from "./router";
+import { HashRouter as Router, Switch, Route} from 'react-router-dom'
+import routes from './router'
 import 'antd/dist/antd.min.css'
 
 class App extends Component {
@@ -10,7 +10,11 @@ class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <RouteList />
+                    {
+                        routes.map((obj) => (
+                            <Route exact {...obj} key={obj.component} />
+                        ))
+                    }
                 </Switch>
             </Router>
         )

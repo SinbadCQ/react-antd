@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
-import { Button } from 'antd';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Button } from 'antd'
+import { Layout, Menu, Breadcrumb, Icon } from 'antd'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -10,6 +11,9 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="home">
+                <Helmet>
+                    <title>layout 布局</title>
+                </Helmet>
                 <Layout>
                     <Header className="header">
                         <div className="logo" />
@@ -63,7 +67,7 @@ export default class Home extends React.Component {
                             }}
                             >
                                 <Link to="/detail">
-                                    <Button type="primary">go to detail</Button>
+                                    <Button type="primary">跳转详情</Button>
                                 </Link>
                                 <Button>Default</Button>
                                 <Button type="dashed">Dashed</Button>
