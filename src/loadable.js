@@ -9,6 +9,7 @@ const asyncComponent = (importComponent) => {
             }
         }
 
+        // 异步引入组件
         async componentDidMount() {
             const { default: component } = await importComponent();
             this.setState({

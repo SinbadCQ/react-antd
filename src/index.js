@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 // import * as serviceWorker from './serviceWorker';
-import { HashRouter as Router, Switch, Route} from 'react-router-dom'
+import { HashRouter as Router, Switch } from 'react-router-dom'
 import routes from './router'
+import NestedRoutes from './components/nestedRoutes/index'
 import 'antd/dist/antd.min.css'
 
 class App extends Component {
@@ -12,7 +13,9 @@ class App extends Component {
                 <Switch>
                     {
                         routes.map((obj) => (
-                            <Route exact {...obj} key={obj.component} />
+                            // 嵌套路由
+                            <NestedRoutes {...obj} key={obj.component} />
+                            // <Route exact {...obj} key={obj.component} />
                         ))
                     }
                 </Switch>

@@ -68,6 +68,9 @@ export default class Home extends React.Component {
                                 <Link to="/carousel">
                                     <Button>走马灯</Button>
                                 </Link>
+                                <Link to="/detail">
+                                    <Button>详情页</Button>
+                                </Link>
                                 <Button type="primary">Primary</Button>
                                 <Button>Default</Button>
                                 <Button type="dashed">Dashed</Button>

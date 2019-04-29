@@ -6,7 +6,7 @@ export default class Detail extends React.Component {
         return (
             <div>
                 <Link to="/">
-                    这是详情首页,点击进入首页
+                    场地详情页
                 </Link>
             </div>
         )
