@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-const routes = (e) => {
+const routes = (route) => {
     const attrs = {
-        path: e.path,
-        component: e.component,
-        render: props => <React.Component />
+        path: route.path,
+        exact: route.exact,
+        render: props => <route.component {...props} routes={route.routes} />
     }
     return <Route {...attrs} />
 }
