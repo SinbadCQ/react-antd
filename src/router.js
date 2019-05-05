@@ -4,20 +4,19 @@ export default [
     {
         path: '/',
         component: loadable(() => import('./pages/home')),
-        children: [
-            { path: '/home', component: loadable(() => import('./pages/home')) },
-        ]
+        exact: true
     },
     {
         path: '/detail',
         component: loadable(() => import('./pages/detail')),
-        children: [
-            {path: '/detail/site', component: loadable(() => import('./pages/detail/site'))},
-            {path: '/detail/activity', component: loadable(() => import('./pages/detail/activity'))}
+        routes: [
+            {path: '/detail', component: loadable(() => import('./pages/detail/site')), exact: true},
+            {path: '/detail/activity', component: loadable(() => import('./pages/detail/activity')), exact: true}
         ],
     },
     {
         path: '/carousel',
-        component: loadable(() => import('./pages/carousel'))
+        component: loadable(() => import('./pages/carousel')),
+        exact: true
     },
 ]

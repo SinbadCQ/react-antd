@@ -5,7 +5,7 @@ export default class Detail extends React.Component {
     render() {
         return (
             <div className="site">
-                <Link to="/">
+                <Link to="/detail/activity">
                     场地详情页
                 </Link>
             </div>
