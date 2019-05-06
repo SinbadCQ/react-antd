@@ -1,4 +1,4 @@
-import loadable from './loadable'
+import loadable from './components/loadable'
 
 export default [
     {
@@ -18,5 +18,5 @@ export default [
         path: '/carousel',
         component: loadable(() => import('./pages/carousel')),
         exact: true
-    },
+    }
 ]

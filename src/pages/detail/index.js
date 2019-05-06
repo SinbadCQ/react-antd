@@ -1,5 +1,5 @@
-import React from 'react'
-import { Switch, Link, Redirect } from 'react-router-dom'
+import React from "react"
+import { Switch, Redirect } from 'react-router-dom'
 import NestedRoutes from '../../components/nestedRoutes/index'
 
 export default class Detail extends React.Component {
