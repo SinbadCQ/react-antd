@@ -13,7 +13,7 @@ export default class Detail extends React.Component {
                             <NestedRoutes {...obj} key={i} />
                         ))
                     }
-                    <Redirect to="/detail" />
+                    <Redirect to="/detail/site" />
                 </Switch>
             </div>
         )

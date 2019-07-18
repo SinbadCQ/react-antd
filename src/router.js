@@ -8,10 +8,10 @@ export default [
     },
     {
         path: '/detail',
-        component: loadable(() => import('./pages/detail')),
+        component: loadable(() => import('./pages/detail'),),
         routes: [
-            {path: '/detail', component: loadable(() => import('./pages/detail/site')), exact: true},
-            {path: '/detail/activity', component: loadable(() => import('./pages/detail/activity')), exact: true}
+            {path: '/detail/site', component: loadable(() => import('./pages/detail/site'))},
+            {path: '/detail/activity', component: loadable(() => import('./pages/detail/activity'))}
         ],
     },
     {
