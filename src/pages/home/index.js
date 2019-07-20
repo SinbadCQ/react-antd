@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Button } from 'antd'
@@ -9,8 +10,36 @@ const {
     Header, Content, Footer, Sider,
 } = Layout;
 
-export default class Home extends React.Component {
+// 输入逻辑：外部的数据（即state对象）如何转换为 UI 组件的参数
+const mapStateToProps = (state) => {
+    return {
+        username: state.account.username,
+        number: state.computed
+    }
+}
+
+// 输出逻辑：用户发出的动作如何变为 Action 对象，从 UI 组件传出去。
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        userChange: () => dispatch({ type: 'USERNAME', text: '周星驰' }),
+        passChange: (password) => dispatch({ type: 'password', password: password })
+    }
+}
+
+class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+
+    componentDidMount() {
+
+    }
+
     render() {
+        const { username, number, userChange } = this.props
         return (
             <div className="home">
                 <Helmet>
@@ -75,6 +104,9 @@ export default class Home extends React.Component {
                                 <Button>Default</Button>
                                 <Button type="dashed">Dashed</Button>
                                 <Button type="danger">Danger</Button>
+                                <Button type="danger" onClick={userChange}>用户名：{username}</Button>
+                                <br></br>
+                                <Button type="danger">{number}</Button>
                             </Content>
                         </Layout>
                     </Content>
@@ -86,3 +118,5 @@ export default class Home extends React.Component {
         )
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
