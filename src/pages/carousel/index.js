@@ -1,6 +1,6 @@
 import React from 'react'
 import { Carousel } from 'antd'
-import './test.scss'
+import './index.scss'
 
 export default class App extends React.Component {
     render() {

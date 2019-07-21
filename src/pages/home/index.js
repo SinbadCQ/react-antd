@@ -13,16 +13,18 @@ const {
 // 输入逻辑：外部的数据（即state对象）如何转换为 UI 组件的参数
 const mapStateToProps = (state) => {
     return {
-        username: state.account.username,
-        number: state.computed
+        account: state.account,
+        number: state.computed,
+        form: state.form
     }
 }
 
 // 输出逻辑：用户发出的动作如何变为 Action 对象，从 UI 组件传出去。
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        userChange: () => dispatch({ type: 'USERNAME', text: '周星驰' }),
-        passChange: (password) => dispatch({ type: 'password', password: password })
+        userChange: () => dispatch({ type: 'username', text: '周星驰' }),
+        telChange: () => dispatch({ type: 'tel', text: '18223289779' }),
+        formChange: () => dispatch({ type: 'index', text: '777' })
     }
 }
 
@@ -39,7 +41,7 @@ class Home extends React.Component {
     }
 
     render() {
-        const { username, number, userChange } = this.props
+        const { number, form, account, userChange, telChange, formChange } = this.props
         return (
             <div className="home">
                 <Helmet>
@@ -103,10 +105,11 @@ class Home extends React.Component {
                                 <Button type="primary">Primary</Button>
                                 <Button>Default</Button>
                                 <Button type="dashed">Dashed</Button>
-                                <Button type="danger">Danger</Button>
-                                <Button type="danger" onClick={userChange}>用户名：{username}</Button>
+                                <Button type="danger" onClick={userChange}>修改用户名：{account.username}</Button>
+                                <Button type="danger" onClick={telChange}>修改手机号：{account.tel}</Button>
                                 <br></br>
                                 <Button type="danger">{number}</Button>
+                                <Button type="danger" onClick={formChange}>修改表单：{form.index}</Button>
                             </Content>
                         </Layout>
                     </Content>
